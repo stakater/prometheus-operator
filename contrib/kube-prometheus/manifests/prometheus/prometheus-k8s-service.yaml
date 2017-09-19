@@ -3,6 +3,11 @@ kind: Service
 metadata:
   labels:
     prometheus: k8s
+    expose: "true"
+  annotations:
+    fabric8.io/ingress.annotations: |-
+      ingress.kubernetes.io/force-ssl-redirect: true
+      kubernetes.io/ingress.class: tools-ingress
   name: prometheus-k8s
 spec:
   type: NodePort
